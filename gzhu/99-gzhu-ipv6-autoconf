@@ -1,0 +1,19 @@
+#!/bin/sh -
+
+#minieap 设置
+[ -e /etc/minieap.conf ] || cp /etc/minieap.conf.default /etc/minieap.conf
+
+#nat66 防火墙设置
+sed -q -e '#GZHU' /etc/firewall.user && exit 0
+#设置防火墙
+{
+  printf "\n#GZHU ipv6 nat conf\n";
+  printf "WAN6=wan\n";
+  printf "LAN=br-lan";
+  printf "ip6tables -t nat -A POSTROUTING -o \$WAN6 -j MASQUERADE";
+  printf "ip6tables -A FORWARD -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT";
+  printf "ip6tables -A FORWARD -i \$LAN -j ACCEPT";
+} >> /etc/firewall.user
+
+
+

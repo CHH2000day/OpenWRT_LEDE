@@ -1,0 +1,6 @@
+#!/bin/sh -
+[ "$ACTION" = ifup ] || exit 0
+iface=wan6
+[ -z "$iface" -o "$INTERFACE" = "$iface" ] || exit 0
+ip -6 route add `ip -6 route show default|sed -e 's/from [^ ]* //'`
+logger -t IPv6 "Add IPv6 default route."
