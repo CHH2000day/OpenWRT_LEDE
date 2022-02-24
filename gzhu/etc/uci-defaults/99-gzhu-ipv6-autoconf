@@ -4,7 +4,7 @@
 [ -e /etc/minieap.conf ] || cp /etc/minieap.conf.default /etc/minieap.conf
 
 #nat66 防火墙设置
-sed -q -e '#GZHU' /etc/firewall.user && exit 0
+sed -n '#GZHU' /etc/firewall.user && exit 0
 #设置防火墙
 {
   printf "\n#GZHU ipv6 nat conf\n";
