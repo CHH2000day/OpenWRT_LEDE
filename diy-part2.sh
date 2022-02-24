@@ -22,7 +22,7 @@ git clone https://github.com/sirpdboy/luci-app-poweroffdevice.git package/luci-a
 git clone https://github.com/sirpdboy/luci-app-autotimeset.git package/luci-app-autotimeset
 
 #修正连接数（by ベ七秒鱼ベ）(modified by CHH2000day)
-sed -q -e 'net.netfilter.nf_conntrack_max=165535' package/base-files/files/etc/sysctl.conf || sed -i  '/customized in this file/a net.netfilter.nf_conntrack_max=165535' package/base-files/files/etc/sysctl.conf
+sed -n -e 'net.netfilter.nf_conntrack_max=165535' package/base-files/files/etc/sysctl.conf || sed -i  '/customized in this file/a net.netfilter.nf_conntrack_max=165535' package/base-files/files/etc/sysctl.conf
 # themes添加（svn co 命令意思：指定版本如https://github）
 git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
 git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
