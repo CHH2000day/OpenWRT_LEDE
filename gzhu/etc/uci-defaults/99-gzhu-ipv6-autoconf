@@ -5,7 +5,7 @@ echo "Setting up minieap"
 [ -e /etc/minieap.conf ] || cp /etc/minieap.conf.default /etc/minieap.conf
 
 #nat66 防火墙设置
-sed -n '#GZHU' /etc/firewall.user && exit 0
+sed -n -e '/#GZHU/p' /etc/firewall.user && exit 0
 
 echo "Setting firewall for NAT66"
 
