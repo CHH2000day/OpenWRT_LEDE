@@ -1,3 +1,4 @@
 #!/bin/sh
 [ "$ACTION" = ifup ] || exit 0
-minieap
+#禁用手动启用minieap
+#minieap
