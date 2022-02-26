@@ -9,13 +9,16 @@
 # File name: diy-part2.sh
 # Description: OpenWrt DIY script part 2 (After Update feeds)
 
+currentWorkDir=$(cd $(dirname $0); pwd)
+
 cloneRepo(){
+  cd "$currentWorkDir"
     #$1 url
     #$2 dest
     #$3 branch
     if [ -d $2 ]
     then
-        cd $2 && git pull && return 0
+        cd $2 && git pull && cd "$currentWorkDir" && return 0
     fi
     if [ -z $3 ]
     then
@@ -23,7 +26,7 @@ cloneRepo(){
     else
       git clone -b $3 $1 $2
     fi
-
+    cd "$currentWorkDir"
 }
 
 
