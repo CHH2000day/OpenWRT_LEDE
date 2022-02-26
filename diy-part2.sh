@@ -9,8 +9,8 @@
 # File name: diy-part2.sh
 # Description: OpenWrt DIY script part 2 (After Update feeds)
 
-currentWorkDir=$(cd $(dirname $0); pwd)
-
+currentWorkDir=`pwd`
+echo "$currentWorkDir"
 cloneRepo(){
   cd "$currentWorkDir"
     #$1 url
